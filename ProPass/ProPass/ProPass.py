@@ -39,8 +39,6 @@ print()
 
 master_list = []
 
-
-
 def new_password():
 
     website = input('What is the website? ')
@@ -51,13 +49,11 @@ def new_password():
 
     if password == 'random':
 
-        num_of_digits = int(input('How many characters long should the password be? '))
-
-        random_password = ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(num_of_digits))
-
+        ordinal = int(input('How many characters long should the password be? '))
+        random_password = ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(ordinal))
         print(f'Here is the random password: {random_password}')
-
         password = random_password
+        pass
 
         def save():
             if choice == 'save':
@@ -76,32 +72,21 @@ def new_password():
     
 
     website_entry = dict([("website", website), ("username", username), ("password", password)]) 
-
     master_list.append(website_entry)
-
     print(master_list)
-    if len(masterlist) <=999:
-        masterlist.append(new)
-    else:
-        print(masterlist)
-        website_entry
-        print ("\nYou cannot exceed 999 entries! ")
-        (...)
-        os.system("PAUSE")
-        pass
+
 
 #load
 def list_password():
-
     web_query = input('What website is it for? ')
-
     anything_found = False
-
     for entry in master_list:
-
         if web_query == entry['website']:
 
-            print('Found:')
+            text = '''
+            Password list:
+            '''
+            print(Fore.BLUE + text + Style.RESET_ALL)
             print('Username is:' + entry['username'])
             print('Password is:' + entry['password'])
             anything_found = True
